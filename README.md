@@ -5,41 +5,17 @@ This is building a container from scratch
 
 ### Build image
 *(If you want to develop yourself)* 
-docker build --tag=hello-duke-cli-210 .
+docker build --tag=duke-nba-wiki:latest .
 
 ### List docker images
 docker image ls
 
 ### Run my newly built container
 
-docker run -it hello-duke-cli-210 python app.py --name "Big John"
+docker run -it joechs/duke-nba-wiki:firsttry python app.py --userinfo "<joseph.hsieh@duke.edu> NBA Popularity Analysis"  --granularity 'monthly' --start '20150701' --end '20160401' --names "Lebron James,Kevin Durant"  
 
 ### Push to Docker Hub
 
 *Note:  You will need to change for your Docker Hub Repo*
-docker push noahgift/duke102:tagname
-
-## Run it yourself
-
-```bash
-docker pull noahgift/cloudapp:latest
-docker run -it noahgift/cloudapp bash 
-
-#then run python app.py --help
-```
-
-## Pass in a command
-
-```bash
-docker run -it noahgift/cloudapp python app.py --name "Big John"
-#the output
-Hello Big John!
-```
-
-### More things Do
-
-* Lint the code with Github Actions (see the Makefile)
-* Automatically build the container after lint, and push to DockerHub or some other Container Registery
-
-
+ docker push joechs/duke-nba-wiki:firsttry
 
